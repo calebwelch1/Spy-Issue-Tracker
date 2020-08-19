@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+// Components
+import SpringAnimations from "./components/SpringAnimations";
+import Component1 from "./components/SpringAnimations/component1";
+import Component2 from "./components/SpringAnimations/component2";
 
-// trying to add breadcrumbs
 import { makeStyles } from "@material-ui/core/styles";
 
 import Grid from "@material-ui/core/Grid";
@@ -29,7 +32,9 @@ export default function App() {
   const classes = useStyles();
   return (
     <body className="background">
-      <p> SPY</p>
+      <h1> SPY</h1>
+      <Component1 />
+      <Component2 />
     </body>
   );
 }

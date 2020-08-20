@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 // template
-const UserSchema = new Schema()({
+const UserSchema = new Schema({
+  firstname: String,
+  lasename: String,
   username: String,
   password: String,
   email: String,
@@ -11,4 +13,4 @@ const UserSchema = new Schema()({
 // first param is name
 const User = mongoose.model("User", UserSchema);
 
-modules.exports = User;
+module.exports = User;

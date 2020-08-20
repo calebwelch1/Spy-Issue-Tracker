@@ -14,6 +14,18 @@ const UserSchema = new Schema({
     unique: true,
   },
   userCreated: { type: Date, default: Date.now },
+  projects: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Project",
+    },
+  ],
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Comment",
+    },
+  ],
 });
 
 UserSchema.methods.getFullName = function () {
@@ -23,3 +35,5 @@ UserSchema.methods.getFullName = function () {
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
+
+// USER has many PROJECTS has many ISSUES has many COMMENTS

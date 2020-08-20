@@ -8,6 +8,6 @@ const CommentSchema = new Schema({
 });
 // turn into model
 // first param is name
-const Comments = mongoose.model("Comment", CommentSchema);
+const Comment = mongoose.model("Comment", CommentSchema);
 
-module.exports = Comments;
+module.exports = Comment;

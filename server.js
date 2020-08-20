@@ -1,6 +1,15 @@
 // need connection to database
 const mongoose = require("mongoose");
 const User = require("./models/userModel");
+//express
+const express = require("express");
+//require models
+const db = require("./models");
+//app
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
 
 // /localhost/name of database...
 const dbUrl =

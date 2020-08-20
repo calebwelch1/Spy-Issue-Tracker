@@ -17,7 +17,10 @@ User.find({}).then((users) => console.log(users));
 // example query for finding users with an age greater than 18
 // User.find({ age: { $gte: 18 } }).then((users) => console.log(users));
 // to find by user mongo id
-// User.findById("5f3e8fd6503a0b0d602d566a").then((user) => console.log(user));
+// we can also use any functions we added to our model!
+User.findById("5f3e8fd6503a0b0d602d566a").then((user) =>
+  console.log(user.getFullName())
+);
 
 // how you crud with the model you made
 User.create({

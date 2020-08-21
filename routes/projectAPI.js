@@ -14,6 +14,21 @@ router.get("/", (req, res) => {
     .sort({ date: -1 })
     .then((projects) => res.json(projects));
 });
+// @ route POST api/projects
+//@desc post a project
+//@access Public
+// check post routes by using postman
+// add Content-Type then value of application/json
+// then in the body make a dummy project in json, tag it as json
+// and send the post! working 8/21/2020 6:20pm
+router.post("/", (req, res) => {
+  const newProject = new Project({
+    projectName: req.body.projectName,
+    projectType: req.body.projectType,
+  });
+  // save new project to database
+  newProject.save().then((project) => res.json(project));
+});
 
 module.exports = router;
 // Project.find().then((projects) => res.json(items));

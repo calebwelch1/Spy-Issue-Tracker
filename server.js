@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 8080;
 // passwords/ dburl
 const mongoURI = require("./config/keys").mongoURI;
 
+// require our api routes
+const projectAPI = require("./routes/projectAPI");
+
 //app
 const app = express();
 app.use(bodyParser.json());
@@ -30,6 +33,13 @@ mongoose
   })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
+//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// use routes
+// using project routes as an example!
+// if you go to this url, use this api route
+app.use("/api/projects", projectAPI);
 
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));
 // query
@@ -49,8 +59,8 @@ app.listen(PORT, () => console.log(`Server started on ${PORT}`));
 // how you crud with the model you made
 db.Project.create({
   // enter here the parameters set in the model
-  projectName: "Write Backend",
-  projectType: "Large, Javascript, Mongoose",
+  projectName: "Write Routes",
+  projectType: "Javascript, Express, Router",
 })
   .then((project) => {
     // console logging our input
